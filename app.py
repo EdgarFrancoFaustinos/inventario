@@ -11,10 +11,10 @@ def index():
 
 @app.route('/productos')
 def agregar_equipo():
-    return "Hola mundo" 
+    return render_template("visualizar.html")
 
 
 # este archivo es el base
 if __name__ == '__main__':
     app.run(debug=True)
-    #Todo el código anterior 
+    #Todo el código anterior
