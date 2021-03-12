@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/agregar')
+@app.route('/productos')
 def agregar_equipo():
     return "Hola mundo" 
 
