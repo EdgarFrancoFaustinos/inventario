@@ -1,0 +1,91 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-image: url('../img/mejorado.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header
+{
+    width: 100%;
+    /* background: #71a447; */
+    background: #fff;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header figure img
+{
+    margin: 0 20px;
+    width: 200px;
+}
+
+.contenido 
+{
+    width: 500px;
+    margin: 50px auto;
+}
+
+.contenido .nombre .tema
+{
+    text-align: center;
+    font-size: 37px;
+    color: #fff;
+}
+
+.contenido .login
+{
+    background: #fff;
+    text-align: center;
+    opacity: .8;
+}
+
+.contenido .login .login_datos 
+{
+    margin: 30px;
+    overflow: hidden;
+}
+
+
+.contenido .login .login_datos p
+{
+    margin: 20px auto;
+}
+
+.contenido .login .login_datos input[type="text"],
+.contenido .login .login_datos input[type="password"]
+{
+    padding: 10px;
+    width: 250px;
+    outline: none;
+    border:0;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contenido .login .login_datos input[type="submit"]
+{
+    display: block;
+    margin: 40px auto ;
+    width: 100px;
+} 
+
+footer
+{
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    margin-top: 10.5%;
+}
