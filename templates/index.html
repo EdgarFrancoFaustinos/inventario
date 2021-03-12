@@ -2,16 +2,16 @@
 <html>
 <head>
 	<title>Sistema de Inventarios</title>
-	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
 </head>
 <body>
 	<header class="cabecera">
 		<figure>
-			<img src="img/upa.png">
+			<img src="{{ url_for('static', filename='img/upa.png')}}">
 
 		</figure>
 		<figure>
-			<img src="img/edo.jpg">
+			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
 		</figure>
 	</header>
 
