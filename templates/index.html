@@ -16,20 +16,22 @@
 	</header>
 
 
-	
+
 
 	<div class="contenido">
 		<section class="nombre">
 			<h1 class="tema">Sistema de Inventario</h1>
 		</section>
-		
+
 		<section class="login">
 			<div class="login_datos">
-				<p>Usuario:</p>
-				<input type="text" name="usuario" id="usuario" class="usuario">
-				<p>Contraseña:</p>
-				<input type="password" name="password" class="password" id="password">
-				<br><input type="submit" value="entrar">
+				<form action="{{ url_for('index')}}" method="post">
+					<p>Usuario:</p>
+					<input type="text" name="usuario" id="usuario" class="usuario">
+					<p>Contraseña:</p>
+					<input type="password" name="password" class="password" id="password">
+					<br><input type="submit" value="entrar">
+				</form>
 			</div>
 		</section>
 	</div>
