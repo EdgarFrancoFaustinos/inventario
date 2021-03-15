@@ -14,6 +14,7 @@ def agregar_equipo():
     return render_template("visualizar.html")
 
 
+
 # este archivo es el base
 if __name__ == '__main__':
     app.run(debug=True)

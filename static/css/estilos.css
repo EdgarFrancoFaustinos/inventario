@@ -70,7 +70,7 @@ header figure img
     width: 250px;
     outline: none;
     border:0;
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
     font-weight: bold;
     text-align: center;
 }
@@ -87,5 +87,5 @@ footer
     width: 100%;
     background: #fff;
     height: 50px;
-    margin-top: 10.5%;
+    margin-top: 11.3%;
 }
