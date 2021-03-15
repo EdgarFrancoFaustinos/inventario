@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(UserMixin):
-
+    """ Esta clase nos sirve para crear nuevos usuarios y utilizar sus metodos """
     def __init__(self, id, name, email, password, is_admin=False):
         self.id = id
         self.name = name
