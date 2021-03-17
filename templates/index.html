@@ -30,6 +30,14 @@
 					<input type="text" name="usuario" id="usuario" class="usuario">
 					<p>Contraseña:</p>
 					<input type="password" name="password" class="password" id="password">
+
+					{% for message in get_flashed_messages()%}
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" data-dismiss='alert' class="close">&times;</button>
+							{{ message }}
+						</div>
+					{% endfor%}
+
 					<br><input type="submit" value="entrar">
 				</form>
 			</div>
