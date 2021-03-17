@@ -43,11 +43,9 @@ def index():
 @app.route('/productos')
 @login_required
 def agregar_equipo():
-    return render_template("visualizar.html")
+    return render_template("inicio.html")
 
 
-<<<<<<< HEAD
-=======
 @app.route('/logout')
 def logout():
     logout_user()
@@ -61,7 +59,6 @@ def load_user(user_id):
             return user
     return None
 
->>>>>>> 4bb81ca5c6a9d1aed0fd270788b30bdaf63c58d7
 
 # este archivo es el base
 if __name__ == '__main__':

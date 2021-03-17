@@ -1,0 +1,35 @@
+h2
+{
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.contenedor
+{
+    max-width: 1200px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+}
+
+.contenedor .opciones .boton
+{
+    margin: 50px;
+    padding: 50px auto;
+}
+.contenedor .opciones .boton a
+{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor .opciones .boton a:hover
+{
+    background-color: #c2c2c2;
+}
