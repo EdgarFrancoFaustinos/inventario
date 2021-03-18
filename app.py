@@ -46,16 +46,25 @@ def index():
 
 
 #si existe una sesion lo mandara a esta funcion, caso contrario lo retorna al index
-@app.route('/productos')
+@app.route('/inicio')
 @login_required
 def agregar_equipo():
     return render_template("inicio.html")
+
+
+@app.route('/agregar')
+@login_required
+def agregar():
+    return render_template("agregar.html")
+
 
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+    
 
 
 # si detecta que hay inicion iniciada valida que sea del usuario que la consulta
