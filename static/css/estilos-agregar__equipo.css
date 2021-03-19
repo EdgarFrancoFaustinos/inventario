@@ -24,6 +24,7 @@ h2
     flex-wrap: nowrap;
     justify-content: center;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .contenedor form input[type="text"],
@@ -50,7 +51,21 @@ h2
 }
 
 
-.contenedor form input[type="sumbit"]
+.contenedor form input[type="submit"]
 {
-    width: 100%;
+    width: 30%;
+    margin: 0 50px 30px 350px;
+    height: 35px;
+}
+
+.contenedor form input[type="submit"]:hover
+{
+    background: #000;
+    color: #fff;
+}
+
+.contenedor form input[type="submit"]:focus
+{
+    background: #000;
+    color: #fff;
 }
