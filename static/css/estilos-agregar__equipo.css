@@ -1,0 +1,56 @@
+body
+{
+    background-image: url('../img/agregar-equipo.jpg'); 
+    background-size: cover;
+}
+
+h2
+{
+    text-align: center;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.contenedor 
+{
+    background: #fff;
+    opacity: .8;
+    margin-top: 100px;
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.contenedor form input[type="text"],
+.contenedor form input[type="number"],
+.contenedor form select
+{
+    margin: 25px;
+    width: 40%;
+    outline: none;
+    padding: 15px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.contenedor form select
+{
+    width: 43%;
+}
+
+.contenedor form #observaciones
+{
+    width: 90%;
+    height: 200px;
+}
+
+
+.contenedor form input[type="sumbit"]
+{
+    width: 100%;
+}

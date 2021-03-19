@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-agregar__equipo.css')}}">
     <title>Agregar equipo</title>
 </head>
 <body>
@@ -19,6 +20,24 @@
 	</header>
 
 
+	<h2>Agregar Equipo</h2>
+
+	<div class="contenedor">
+		<form action="">
+			<input type="text" placeholder="Nombre:">
+			<input type="number" placeholder="No. de serie">
+			<input type="text" placeholder="Ubicación">
+			<input type="text" placeholder="Marca">
+			<select name="estado" id="estado" class="estado">
+				<option value="funcional">funcional</option>
+				<option value="averiado">Averiado</option>
+				<option value="reparacion">En reparación</option>
+			</select>
+			<input type="text" placeholder="Modelo" id="modelo" class="modelo">
+			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones">
+			<input type="sumbit" value="Agregar">
+		</form>
+	</div>
     
 </body>
 </html>
