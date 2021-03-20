@@ -1,0 +1,26 @@
+-------------------- Mejoras--------------------
+Campos que se necesitan agregar:
+ * Fecha
+ * Código
+ * A cargo de (opcion)
+
+Agregar botones
+ * Boton de volver cuando se haya registrado un equipo	
+
+Mejorar botones
+ * Arreglar boton de eliminar
+
+Imprimir:
+ * Ficha técnica (caracteristicas del equipo)
+
+--------------------- Opción--------------------
+
+ * Agregar que usuaro registro el equipo
+
+
+
+
+App.diagrams.net
+
+
+Ambientes virtuales de python, funcionan como una maquina virtual de paquetes (sintaxis)

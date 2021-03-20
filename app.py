@@ -7,8 +7,14 @@ from flask_login import LoginManager, login_required, login_user, logout_user, c
 #importamos nuestro archivo user que contiene nuestra clase usuario
 from user import User
 
+#importamos la clase de equipo
+from equipment import Equipment
+
 # creamos una instancia de User para usar sus metodos despues
 user_class = User()
+
+#instanciamos la clase para usar metodos y atributos
+equipment_class = Equipment()
 
 # creamos nuestra aplicacion de flask
 app = Flask(__name__)
@@ -52,9 +58,29 @@ def agregar_equipo():
     return render_template("inicio.html")
 
 
-@app.route('/agregar')
+@app.route('/agregar', methods=['GET', 'POST'])
 @login_required
 def agregar():
+    
+    if request.method == 'POST':
+        name= request.form['nombre']
+        serie = request.form['no_serie']
+        ubicacion = request.form['ubicacion']
+        marca = request.form['marca']
+        estado = request.form['estado']
+        modelo = request.form['modelo']
+        observaciones = request.form['observaciones']
+        # print("*"*50)
+        # print(name, serie, ubicacion, marca, estado, modelo, observaciones)
+        # print("*"*50)
+
+        newEquipment = Equipment(name, serie, ubicacion, marca, estado, modelo, observaciones)
+        newEquipment.save()
+
+        flash('Equipo guardado')
+
+        return redirect(url_for('agregar_equipo'))
+
     return render_template("agregar.html")
 
 
@@ -78,3 +104,8 @@ def load_user(user_id):
 if __name__ == '__main__':
     app.run(debug=True)
     #Todo el código anterior
+
+
+
+
+#Este es el archivo principal que necesita flask, donde estan las rutas del sistema web.

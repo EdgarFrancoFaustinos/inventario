@@ -23,18 +23,18 @@
 	<h2>Agregar Equipo</h2>
 
 	<div class="contenedor">
-		<form action="">
-			<input type="text" placeholder="Nombre:">
-			<input type="text" placeholder="No. de serie">
-			<input type="text" placeholder="Ubicación">
-			<input type="text" placeholder="Marca">
-			<select name="estado" id="estado" class="estado">
-				<option value="funcional">funcional</option>
-				<option value="averiado">Averiado</option>
-				<option value="reparacion">En reparación</option>
+		<form action="{{ url_for('agregar')}}" method="POST">
+			<input type="text" placeholder="Nombre:" name="nombre">
+			<input type="text" placeholder="No. de serie" name="no_serie">
+			<input type="text" placeholder="Ubicación" name="ubicacion">
+			<input type="text" placeholder="Marca" name="marca">
+			<select name="estado" id="estado" class="estado" name="estado">
+				<option value="1">funcional</option>
+				<option value="2">Averiado</option>
+				<option value="3">En reparación</option>
 			</select>
-			<input type="text" placeholder="Modelo" id="modelo" class="modelo">
-			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones">
+			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo">
+			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones">
 			<input type="submit" value="Agregar">
 		</form>
 	</div>

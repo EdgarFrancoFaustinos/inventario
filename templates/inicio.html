@@ -22,6 +22,13 @@
 
     <h2 class="titulo">Administración de equipos</h2>
 
+    {% for message in get_flashed_messages()%}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" data-dismiss='alert' class="close">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor%}
+
     <div class="contenedor">
         <div class="opciones">
             <div class="boton"><a href="/agregar">Agregar</a></div>
