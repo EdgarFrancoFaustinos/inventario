@@ -8,7 +8,7 @@ class DataBase:
         self.connection = pymysql.connect(
             host='localhost',
             user= 'root',
-            passwd='zxcvbnm',
+            passwd='1149',
             db='inventarios'
             )
 

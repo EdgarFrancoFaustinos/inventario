@@ -1,5 +1,5 @@
 # importa el framework flask asi como sus metodos
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 #libreria usada para poner seguridad en login
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -84,13 +84,46 @@ def agregar():
     return render_template("agregar.html")
 
 
+@app.route('/actualizar', methods=['GET', 'POST'])
+@login_required
+def actualizar():
+
+    if request.method == 'POST':
+        pass
+    
+    if not 'data' in session:
+        data = {}
+    else:
+        data = session.get('data')
+    
+    context = {
+        'data': data
+    }
+
+    return render_template('actualizar.html', **context)
+
+
+@app.route('/buscar_equipo_por_codigo/<nombre_funcion>', methods=['GET', 'POST'])
+@login_required
+def buscar(nombre_funcion):
+
+    if request.method == 'POST':
+        barcode = request.form['barcode']
+
+        data = equipment_class.get_equipment_info(barcode)
+
+        if data:
+            session['data'] = data
+            return redirect(url_for(nombre_funcion))
+
+    flash('El equipo no existe')
+    return redirect(url_for(nombre_funcion))
+
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-    
 
 
 # si detecta que hay inicion iniciada valida que sea del usuario que la consulta
