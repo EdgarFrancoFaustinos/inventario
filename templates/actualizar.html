@@ -42,7 +42,7 @@
 			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">
 			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
 			<select name="estado" id="estado" class="estado" name="estado">
-				<option>{{ data.get('id_estado', 'Estado') }}</option>
+				<option value="{{ data.get('id_estado', '') }}">{{ data.get('estado', 'Estado') }}</option>
 				<option value="1">funcional</option>
 				<option value="2">Averiado</option>
 				<option value="3">En reparación</option>

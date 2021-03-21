@@ -60,10 +60,11 @@ class Equipment:
                 'ubicacion': f'{data[3]}',
                 'marca': f'{data[4]}',
                 'modelo': f'{data[5]}',
-                'id_estado': f'{data[11]}',
+                'id_estado': f'{data[6]}',
                 'observaciones': f'{data[7]}',
                 'fecha_registro': f'{data[8]}',
-                'barcode': f'{data[9]}'
+                'barcode': f'{data[9]}',
+                'estado': f'{data[11]}'
             }
             
             return equipment_info
@@ -75,7 +76,7 @@ class Equipment:
         pass
 
 
-    def update_equipment(self, equipment_id):
+    def update_equipment(self):
         # considerar en agregar un campo llamado ultima_modificacion
 
         sql = f"""
@@ -86,10 +87,8 @@ class Equipment:
         marca = '{self.marca}',
         id_estado = '{self.estado}',
         modelo = '{self.modelo}',
-        observaciones = '{self.observaciones}',
-        fecha_registro = '{register_date}'
-        WHERE id = '{equipment_id}';
-  
+        observaciones = '{self.observaciones}'
+        WHERE barcode = '{self.barcode}' limit 1;
         """
 
         self.db.execute_query(sql)

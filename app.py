@@ -89,12 +89,27 @@ def agregar():
 def actualizar():
 
     if request.method == 'POST':
-        pass
-    
+        nombre= request.form['nombre']
+        serie = request.form['no_serie']
+        ubicacion = request.form['ubicacion']
+        marca = request.form['marca']
+        estado = request.form['estado']
+        modelo = request.form['modelo']
+        observaciones = request.form['observaciones']
+        barcode = session.get('barcode')
+        session.pop('barcode', None)
+        
+        updateEquipment = Equipment(nombre, serie, ubicacion, marca, estado, modelo, observaciones, barcode)
+        updateEquipment.update_equipment()
+
+        flash('Equipo actualizado correctamente')
+
+
     if not 'data' in session:
         data = {}
     else:
         data = session.get('data')
+        session.pop('data', None)
     
     context = {
         'data': data
@@ -114,6 +129,7 @@ def buscar(nombre_funcion):
 
         if data:
             session['data'] = data
+            session['barcode'] = barcode
             return redirect(url_for(nombre_funcion))
 
     flash('El equipo no existe')
