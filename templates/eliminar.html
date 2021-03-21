@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-agregar__equipo.css')}}">
+    <title>Eliminar Equipo</title>
+</head>
+<body>
+    <header class="cabecera">
+		<figure>
+			<img src="{{ url_for('static', filename='img/upa.png')}}">
+
+		</figure>
+		<figure>
+			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
+		</figure>
+	</header>
+
+
+	<h2>Eliminar Equipo</h2>
+
+	<center>
+	<form action="{{ url_for('buscar', nombre_funcion='actualizar') }}" method="POST">
+		<input type="text" placeholder="Busca por código de barras: " name="barcode">
+		<input type="submit" value="Buscar">
+	</form></center><br><br>
+
+	{% for message in get_flashed_messages()%}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" data-dismiss='alert' class="close">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor%}
+
+	<div class="contenedor">
+		<form action="{{ url_for('actualizar')}}" method="POST">
+			<input type="text" placeholder="Nombre:" name="nombre" value="{{ data.get('nombre', '') }}">
+			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}">
+			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">
+			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
+			<select name="estado" id="estado" class="estado" name="estado">
+				<option value="{{ data.get('id_estado', '') }}">{{ data.get('estado', 'Estado') }}</option>
+				<option value="1">funcional</option>
+				<option value="2">Averiado</option>
+				<option value="3">En reparación</option>
+			</select>
+			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}">
+			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}">
+			<input type="submit" value="Eliminar">
+		</form>
+	</div>
+    
+</body>
+</html>

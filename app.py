@@ -27,14 +27,14 @@ app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b
 login_manager = LoginManager(app)
 
 # si protegemos una vista, y alguien trata de acceder lo retorna a la funcion index para que se loguee
-login_manager.login_view = "index"
+login_manager.login_view = "login"
 
 
 # Esta funcion se encarga de recibir el username y password para el inicio de sesion
 @app.route('/', methods=['GET', 'POST'])
-def index():
+def login():
     if current_user.is_authenticated:
-        return redirect(url_for('agregar_equipo'))
+        return redirect(url_for('inicio'))
 
     if request.method == 'POST':
         email = request.form['usuario']
@@ -46,15 +46,15 @@ def index():
         else:
             flash('Usuario o contraseña incorrectos')
 
-        return redirect(url_for('agregar_equipo'))
+        return redirect(url_for('inicio'))
 
-    return render_template("index.html")
+    return render_template("login.html")
 
 
 #si existe una sesion lo mandara a esta funcion, caso contrario lo retorna al index
 @app.route('/inicio')
 @login_required
-def agregar_equipo():
+def inicio():
     return render_template("inicio.html")
 
 
@@ -79,7 +79,7 @@ def agregar():
 
         flash('Equipo guardado')
 
-        return redirect(url_for('agregar_equipo'))
+        return redirect(url_for('inicio'))
 
     return render_template("agregar.html")
 
@@ -118,6 +118,33 @@ def actualizar():
     return render_template('actualizar.html', **context)
 
 
+@app.route('/eliminar', methods=['GET', 'POST'])
+@login_required
+def eliminar():
+
+    if request.method == 'POST':
+        pass
+
+
+    if not 'data' in session:
+        data = {}
+    else:
+        data = session.get('data')
+        session.pop('data', None)
+    
+    context = {
+        'data': data
+    }
+
+    return render_template('eliminar.html', **context)
+
+
+@app.route('/visualizar', methods=['GET', 'POST'])
+@login_required
+def visualizar():
+    return "Aqui va la plantilla de visualizar"
+
+
 @app.route('/buscar_equipo_por_codigo/<nombre_funcion>', methods=['GET', 'POST'])
 @login_required
 def buscar(nombre_funcion):
@@ -139,7 +166,7 @@ def buscar(nombre_funcion):
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 
 # si detecta que hay inicion iniciada valida que sea del usuario que la consulta
