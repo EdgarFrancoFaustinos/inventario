@@ -37,6 +37,7 @@
 
 	<div class="contenedor">
 		<form action="{{ url_for('actualizar')}}" method="POST">
+			<input type="hidden" name="barcode" value="{{ data.get('barcode')}} ">
 			<input type="text" placeholder="Nombre:" name="nombre" value="{{ data.get('nombre', '') }}">
 			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}">
 			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">

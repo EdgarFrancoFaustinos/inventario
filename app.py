@@ -96,13 +96,13 @@ def actualizar():
         estado = request.form['estado']
         modelo = request.form['modelo']
         observaciones = request.form['observaciones']
-        barcode = session.get('barcode')
-        session.pop('barcode', None)
+        barcode = request.form['barcode']
         
         updateEquipment = Equipment(nombre, serie, ubicacion, marca, estado, modelo, observaciones, barcode)
         updateEquipment.update_equipment()
 
         flash('Equipo actualizado correctamente')
+        return redirect(url_for('inicio'))
 
 
     if not 'data' in session:
@@ -123,7 +123,12 @@ def actualizar():
 def eliminar():
 
     if request.method == 'POST':
-        pass
+        barcode = request.form['barcode']
+        equipment_class.delete_equipment(barcode)
+
+        flash('Equipo eliminado correctamente')
+
+        return redirect(url_for('inicio'))
 
 
     if not 'data' in session:
@@ -156,7 +161,6 @@ def buscar(nombre_funcion):
 
         if data:
             session['data'] = data
-            session['barcode'] = barcode
             return redirect(url_for(nombre_funcion))
 
     flash('El equipo no existe')

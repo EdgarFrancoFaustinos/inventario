@@ -55,6 +55,7 @@ class Equipment:
             data = data[0]
 
             equipment_info = {
+                'barcode': f'{data[0]}',
                 'nombre': f'{data[1]}', 
                 'no_serie': f'{data[2]}',
                 'ubicacion': f'{data[3]}',
@@ -72,8 +73,11 @@ class Equipment:
         return data
 
     
-    def delete_equipment(self, equipment_id):
-        pass
+    def delete_equipment(self, barcode):
+        sql = f"DELETE FROM equipos WHERE barcode = '{barcode}' limit 1"
+        self.db.execute_query(sql)
+
+        return True
 
 
     def update_equipment(self):

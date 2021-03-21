@@ -23,7 +23,7 @@
 	<h2>Eliminar Equipo</h2>
 
 	<center>
-	<form action="{{ url_for('buscar', nombre_funcion='actualizar') }}" method="POST">
+	<form action="{{ url_for('buscar', nombre_funcion='eliminar') }}" method="POST">
 		<input type="text" placeholder="Busca por código de barras: " name="barcode">
 		<input type="submit" value="Buscar">
 	</form></center><br><br>
@@ -36,19 +36,15 @@
     {% endfor%}
 
 	<div class="contenedor">
-		<form action="{{ url_for('actualizar')}}" method="POST">
-			<input type="text" placeholder="Nombre:" name="nombre" value="{{ data.get('nombre', '') }}">
-			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}">
-			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">
-			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
-			<select name="estado" id="estado" class="estado" name="estado">
-				<option value="{{ data.get('id_estado', '') }}">{{ data.get('estado', 'Estado') }}</option>
-				<option value="1">funcional</option>
-				<option value="2">Averiado</option>
-				<option value="3">En reparación</option>
-			</select>
-			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}">
-			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}">
+		<form action="{{ url_for('eliminar')}}" method="POST">
+			<input type="hidden" name="barcode" value="{{ data.get('barcode')}} ">
+			<input type="text" placeholder="Nombre:" name="nombre" value="{{ data.get('nombre', '') }}" readonly="on">
+			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}" readonly="on">
+			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}" readonly="on">
+			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}" readonly="on">
+			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('estado', 'Estado') }}" readonly="on">
+			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}" readonly="on">
+			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}" readonly="on">
 			<input type="submit" value="Eliminar">
 		</form>
 	</div>
