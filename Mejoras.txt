@@ -2,7 +2,7 @@
 Campos que se necesitan agregar:
  * Fecha
  * Código
- * A cargo de (opcion)
+ * A cargo de (opcion)      (resguardatario)
 
 Agregar botones
  * Boton de volver cuando se haya registrado un equipo	
@@ -11,7 +11,7 @@ Mejorar botones
  * Arreglar boton de eliminar
 
 Imprimir:
- * Ficha técnica (caracteristicas del equipo)
+ * Ficha técnica (caracteristicas del equipo)  ------------ no
 
 --------------------- Opción--------------------
 

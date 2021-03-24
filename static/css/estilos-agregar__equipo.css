@@ -41,7 +41,7 @@ h2
 
 .contenedor form select
 {
-    width: 43%;
+    width: 34%;
 }
 
 .contenedor form #observaciones
@@ -68,4 +68,10 @@ h2
 {
     background: #000;
     color: #fff;
+}
+
+label
+{
+    margin-left: 20px;
+    font-size: 15px;
 }

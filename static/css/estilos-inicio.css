@@ -13,6 +13,7 @@ h2
     margin: 0 auto;
     margin-top: 30px;
     display: flex;
+    opacity: .8;
 }
 
 .contenedor .opciones .boton

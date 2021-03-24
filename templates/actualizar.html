@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-agregar__equipo.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-actualizar.css')}}">
     <title>Actualizar Equipo</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 
 	<center>
 	<form action="{{ url_for('buscar', nombre_funcion='actualizar') }}" method="POST">
-		<input type="text" placeholder="Busca por código de barras: " name="barcode">
+		<input type="text" placeholder="Busca por código de barras: " name="barcode" class="buscador">
 		<input type="submit" value="Buscar">
 	</form></center><br><br>
 
@@ -42,13 +43,17 @@
 			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}">
 			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">
 			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
+			<label for="estado">Condiciones</label>
 			<select name="estado" id="estado" class="estado" name="estado">
-				<option value="{{ data.get('id_estado', '') }}">{{ data.get('estado', 'Estado') }}</option>
+				<option value=""></option>
 				<option value="1">funcional</option>
 				<option value="2">Averiado</option>
-				<option value="3">En reparación</option>
+				<option value="3">Reparando</option>
 			</select>
+			<input type="text" name="resguardatario" id="resguardatario" placeholder="Resguardatario">
+			
 			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}">
+			<input type="text" placeholder="Código de barras">
 			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}">
 			<input type="submit" value="Actualizar">
 		</form>
