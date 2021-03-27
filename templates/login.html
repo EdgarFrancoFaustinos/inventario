@@ -13,6 +13,7 @@
 		<figure>
 			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
 		</figure>
+	
 	</header>
 
 
@@ -23,6 +24,7 @@
 			<h1 class="tema">Sistema de Inventario de equipos de computo</h1>
 		</section>
 
+
 		<section class="login">
 			<div class="login_datos">
 				<form action="{{ url_for('login')}}" method="post">
@@ -32,7 +34,7 @@
 					<input type="password" name="password" class="password" id="password">
 
 					{% for message in get_flashed_messages()%}
-						<div class="alert alert-success alert-dismissible">
+						<div class="alert alert-success alert-dismissible mensaje" >
 							<button type="button" data-dismiss='alert' class="close">&times;</button>
 							{{ message }}
 						</div>

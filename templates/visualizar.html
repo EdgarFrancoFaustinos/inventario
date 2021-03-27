@@ -4,11 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inicio.css')}}">
     <title>Document</title>
 </head>
-<body>
-    <h1>Bienvenido {{ current_user.name }}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat quaerat ducimus assumenda nulla voluptatum porro distinctio aperiam, harum et fugiat earum cupiditate rem unde minima quas error alias, nobis numquam.</p>
-    <a href="/logout">Cerrar sesion</a>
+<body> 
+    <header class="cabecera">
+		<figure>
+			<img src="{{ url_for('static', filename='img/upa.png')}}">
+
+		</figure>
+
+		<figure>
+			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
+		</figure>
+
+
+        <div class="menu">
+            <figure class="user">
+			    <img class="user" src="{{ url_for('static', filename='img/user.png')}}" alt="">
+            </figure>
+            <ul>
+                <li><a href="logout">Log out</a></li>
+             </ul>
+        </div>
+        
+	</header>
+
+    <h2 class="titulo">Equipos</h2>
+
+    <div class="mostrar">
+        <table WIDTH="90%" BORDER="1" CELLSPACING="4" CELLPADING="2">
+            <tr>
+                <th>ID Equipos</th>
+                <th>Nombre</th>
+                <th>No. de serie</th>
+                <th>Ubicación</th>
+                <th>Marca</th>
+                <th>Condiciones</th>
+                <th>resguardatario</th>
+                <th>Modelo</th>
+                <th>Código</th>
+                <th>Observaciones</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>LAptop Dell</td>
+                <td>1q234da</td>
+                <td>Finanzas</td>
+                <td>Dell</td>
+                <td>Averiado</td>
+                <td>Marco</td>
+                <td>deq31asd</td>
+                <td>123</td>
+                <td>Chida</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>LAptop Dell</td>
+                <td>1q234da</td>
+                <td>Finanzas</td>
+                <td>Dell</td>
+                <td>Averiado</td>
+                <td>Marco</td>
+                <td>deq31asd</td>
+                <td>123</td>
+                <td>Chida</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>LAptop Dell</td>
+                <td>1q234da</td>
+                <td>Finanzas</td>
+                <td>Dell</td>
+                <td>Averiado</td>
+                <td>Marco</td>
+                <td>deq31asd</td>
+                <td>123</td>
+                <td>Chida</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>LAptop Dell</td>
+                <td>1q234da</td>
+                <td>Finanzas</td>
+                <td>Dell</td>
+                <td>Averiado</td>
+                <td>Marco</td>
+                <td>deq31asd</td>
+                <td>123</td>
+                <td>Chida</td>
+            </tr>
+          
+        </table>
+    </div>
 </body>
 </html>

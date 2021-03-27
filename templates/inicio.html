@@ -15,15 +15,27 @@
 			<img src="{{ url_for('static', filename='img/upa.png')}}">
 
 		</figure>
+
 		<figure>
 			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
 		</figure>
+
+
+        <div class="menu">
+            <figure class="user">
+			    <img class="user" src="{{ url_for('static', filename='img/user.png')}}" alt="">
+            </figure>
+            <ul>
+                <li><a href="logout">Log out</a></li>
+             </ul>
+        </div>
+        
 	</header>
 
     <h2 class="titulo">Administración de equipos</h2>
 
     {% for message in get_flashed_messages()%}
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert alert-success alert-dismissible  mensaje" >
             <button type="button" data-dismiss='alert' class="close">&times;</button>
             {{ message }}
         </div>
@@ -31,13 +43,17 @@
 
     <div class="contenedor">
         <div class="opciones">
-            <div class="boton"><a href="/agregar">Agregar</a></div>
-            <div class="boton"><a href="/visualizar">Vizsualizar</a></div>
-            <div class="boton"><a href="/actualizar">Actualizar</a></div>
-            <div class="boton"><a href="/eliminar">Eliminar</a></div>
+            <div class="boton elemento fondo1"><a href="/agregar">Agregar</a></div>
+            <div class="icono elemento fondo2"><img class="user" src="{{ url_for('static', filename='img/agregar1.png')}}" alt="" width="50px"></div>
+            <div class="icono elemento fondo3"><img class="user" src="{{ url_for('static', filename='img/visualizar2.png')}}" alt="" width="50px"></div>
+            <div class="boton elemento fondo4"><a href="/visualizar">Visualizar</a></div>
+            <div class="boton elemento fondo5"><a href="/actualizar">Actualizar</a></div>
+            <div class="icono elemento fondo6"><img class="user" src="{{ url_for('static', filename='img/actualizar1.png')}}" alt="" width="50px"></div>
+            <div class="icono elemento fondo7"><img class="user" src="{{ url_for('static', filename='img/eliminar1.png')}}" alt="" width="50px"></div>
+            <div class="boton elemento fondo8"><a href="/eliminar">Eliminar</a></div>
         </div>
     </div>
 
-    <a href="logout">Log out</a>
+    
 </body>
 </html>

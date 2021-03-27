@@ -1,0 +1,70 @@
+.login
+{
+	width: 350px;
+	height: 450px;
+	background: rgba(55, 172, 95, .2);
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	border-radius: 20px;
+}
+
+.login:hover
+{
+	box-shadow: 0 5px 25px rgba(255,255,255, .5);
+	transition: 550ms all;
+    transform-origin: center left;
+}
+
+.login .input
+{
+	width: 80%;
+	height: 50px;
+	background: transparent;
+    outline: none;
+	border: none;
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	margin: 35px;
+	border-bottom: 2px solid #fff;
+	padding-bottom: 5px;
+}::placeholder { color: white; }
+
+.login .entrar
+{
+	width: 25%; 
+	height: 40px;
+	font-size: 13px;
+	border: none;
+	background: rgba(255, 255, 255, .6);	
+}
+
+.login .entrar:hover
+{
+	background: rgba(255, 255, 255, 1);
+	
+}
+
+.login .olvide-contraseña
+{
+	display: block;
+	text-decoration: none;
+	margin-top: 35px;
+	color: #fff;
+}
+.login .olvide-contraseña:hover
+{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+footer p
+{
+	color: #fff;
+	text-align: center;
+	height: 20px;
+	justify-content: center;
+	display: block;
+	padding: 20px;
+}

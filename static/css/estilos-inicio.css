@@ -1,3 +1,64 @@
+body
+{
+    /* background-image: url('../img/mejorado.jpeg') #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; */
+    background: #6d8517;
+}
+
+.cabecera
+{
+    background: #fff;
+}
+.cabecera .menu .user
+{
+	margin-right: 35px;
+}
+
+.cabecera .menu ul
+{
+	display: none;
+	list-style: none;
+	position: absolute;
+	width: 200px;
+	text-align: left;
+	margin: 0  0 0 -140px;
+	background: #fff;
+	border-radius: 6px;
+}
+.cabecera .menu:hover ul, ul:hover
+{
+	display: block;
+}
+
+.cabecera .menu ul li a
+{
+	text-decoration: none;
+	display: block;
+	padding: 10px 5px;
+	color: #000;
+}
+
+.cabecera .menu ul li a:hover
+{
+	background: rgba(55, 172, 95, 1);
+	color: white;
+	cursor: pointer;
+    transition: 650ms all;
+    transform-origin: center left;
+	padding: 10px 15px;
+}
+
+.mensaje
+{
+    background: red;
+    color: #fff;
+    width: 30%;
+    margin: 15px auto;
+    padding: 20px;
+}
+
 h2
 {
     color: #fff;
@@ -8,17 +69,96 @@ h2
 
 .contenedor
 {
-    max-width: 1200px;
+    max-width: 1000px;
     background-color: #fff;
     margin: 0 auto;
     margin-top: 30px;
     display: flex;
-    opacity: .8;
+    opacity: 1;
+}
+
+.contenedor .opciones
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    /* margin: 5px auto 5px auto; */
+
+}
+
+.contenedor .opciones .elemento
+{
+    width: 44%;
+    text-align: center;
+    padding: 30px;
+    overflow: hidden;
 }
 
 .contenedor .opciones .boton
 {
+    height: 54px;
+}
+.contenedor .opciones .icono
+{
+    overflow: hidden;
+}
+
+.contenedor .opciones .boton a
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.contenedor .opciones .fondo1
+{
+    background: #462446;
+}
+
+.contenedor .opciones .fondo2
+{
+    background: #ffc153;
+}
+
+.contenedor .opciones .fondo3
+{
+    background: #eb6b56;
+}
+
+.contenedor .opciones .fondo4
+{
+    background: #b05f6d;
+}
+
+.contenedor .opciones .fondo5
+{
+    background: #47b39d;
+}
+
+.contenedor .opciones .fondo6
+{
+    background: #d51c57;
+}
+
+.contenedor .opciones .fondo7
+{
+    background: #FFA500;
+
+}
+
+.contenedor .opciones .fondo8
+{
+    background: #5f5a9f;
+}
+
+
+/* .contenedor .opciones .boton
+{
     margin: 50px;
+    display: inline-block;
     padding: 50px auto;
 }
 .contenedor .opciones .boton a
@@ -33,4 +173,4 @@ h2
 .contenedor .opciones .boton a:hover
 {
     background-color: #c2c2c2;
-}
+} */

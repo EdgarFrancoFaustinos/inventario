@@ -144,10 +144,15 @@ def eliminar():
     return render_template('eliminar.html', **context)
 
 
-@app.route('/visualizar', methods=['GET', 'POST'])
+# @app.route('/visualizar', methods=['GET', 'POST'])
+# @login_required
+# def visualizar():
+#     return "Aqui va la plantilla de visualizar"
+
+@app.route('/visualizar')
 @login_required
 def visualizar():
-    return "Aqui va la plantilla de visualizar"
+    return render_template("visualizar.html")
 
 
 @app.route('/buscar_equipo_por_codigo/<nombre_funcion>', methods=['GET', 'POST'])

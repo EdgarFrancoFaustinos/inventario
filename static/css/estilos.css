@@ -6,6 +6,7 @@
 
 body
 {
+    /* background-image: url('../img/bg.jpg'); */
     background-image: url('../img/mejorado.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,6 +24,21 @@ header
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+}
+
+header figure .user
+{
+    width: 50px;
+}
+
+.login .login_datos .mensaje
+{
+
+    margin-top: 20px;
+    color: #fff;
+    opacity: 1;
+    background: red;
+    padding: 15px;
 }
 
 header figure img
