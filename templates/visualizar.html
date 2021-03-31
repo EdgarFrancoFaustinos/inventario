@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inicio.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-visualizar.css')}}">
     <title>Document</title>
 </head>
 <body> 
@@ -32,6 +33,26 @@
 	</header>
 
     <h2 class="titulo">Equipos</h2>
+
+    <hr>
+
+    <form action="">
+        <label for="filtro">Filtrar por:</label>
+        <select name="filtro" id="filtro" name="filtro">
+            <option value="0"></option>
+            <option value="1">Nombre</option>
+            <option value="2">No. de serie</option>
+            <option value="3">Ubicación</option>
+            <option value="4">Marca</option>
+            <option value="5">Condiciones</option>
+            <option value="6">Resguardatario</option>
+            <option value="7">Modelo</option>
+            <option value="8">Código de barras</option>
+        </select>
+
+        <input type="text" name="filtro-elegido" id="filtro-elegido">
+        <input type="submit" value="Filtrar">
+    </form>
 
     <div class="mostrar">
         <table WIDTH="90%" BORDER="1" CELLSPACING="4" CELLPADING="2">
