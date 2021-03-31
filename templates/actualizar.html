@@ -45,19 +45,19 @@
 			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
 			<label for="estado">Condiciones</label>
 			<select name="estado" id="estado" class="estado" name="estado">
-				<option value=""></option>
+				<option value="{{data.get('id_estado', '0')}}">{{ data.get('estado', '') }}</option>
 				<option value="1">funcional</option>
 				<option value="2">Averiado</option>
 				<option value="3">Reparando</option>
 			</select>
-			<input type="text" name="resguardatario" id="resguardatario" placeholder="Resguardatario">
-			
+			<input type="text" name="resguardatario" id="resguardatario" placeholder="Resguardatario" value="{{ data.get('resguardo', '')}}">
+
 			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}">
-			<input type="text" placeholder="Código de barras">
+			<input type="text" placeholder="Código de barras" value="{{ data.get('barcode')}}" readonly>
 			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}">
 			<input type="submit" value="Actualizar">
 		</form>
 	</div>
-    
+
 </body>
 </html>

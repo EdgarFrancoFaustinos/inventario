@@ -30,9 +30,10 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login"
 
 
-# Esta funcion se encarga de recibir el username y password para el inicio de sesion
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    """ Esta funcion se encarga de recibir el username y password para el inicio de sesion """
+
     if current_user.is_authenticated:
         return redirect(url_for('inicio'))
 
@@ -51,30 +52,33 @@ def login():
     return render_template("login.html")
 
 
-#si existe una sesion lo mandara a esta funcion, caso contrario lo retorna al index
 @app.route('/inicio')
 @login_required
 def inicio():
+    """ si existe una sesion lo mandara a esta funcion, caso contrario lo retorna al index """
+
     return render_template("inicio.html")
 
 
 @app.route('/agregar', methods=['GET', 'POST'])
 @login_required
 def agregar():
-    
+    """ Se encarga de recibir los datos enviados a tráves del form y los guarda en la db """
+
     if request.method == 'POST':
-        name= request.form['nombre']
+        nombre = request.form['nombre']
         serie = request.form['no_serie']
         ubicacion = request.form['ubicacion']
         marca = request.form['marca']
         estado = request.form['estado']
+        resguardo = request.form['resguardatario']
         modelo = request.form['modelo']
+        codigo = request.form['barcode']
         observaciones = request.form['observaciones']
-        # print("*"*50)
         # print(name, serie, ubicacion, marca, estado, modelo, observaciones)
         # print("*"*50)
 
-        newEquipment = Equipment(name, serie, ubicacion, marca, estado, modelo, observaciones)
+        newEquipment = Equipment(nombre, serie, ubicacion, marca, estado, resguardo ,modelo,observaciones, codigo)
         newEquipment.save()
 
         flash('Equipo guardado')
@@ -94,11 +98,12 @@ def actualizar():
         ubicacion = request.form['ubicacion']
         marca = request.form['marca']
         estado = request.form['estado']
+        resguardo = request.form['resguardatario']
         modelo = request.form['modelo']
         observaciones = request.form['observaciones']
         barcode = request.form['barcode']
-        
-        updateEquipment = Equipment(nombre, serie, ubicacion, marca, estado, modelo, observaciones, barcode)
+
+        updateEquipment = Equipment(nombre, serie, ubicacion, marca, estado, resguardo,modelo, observaciones, barcode)
         updateEquipment.update_equipment()
 
         flash('Equipo actualizado correctamente')
@@ -110,7 +115,7 @@ def actualizar():
     else:
         data = session.get('data')
         session.pop('data', None)
-    
+
     context = {
         'data': data
     }
@@ -136,7 +141,7 @@ def eliminar():
     else:
         data = session.get('data')
         session.pop('data', None)
-    
+
     context = {
         'data': data
     }
@@ -144,15 +149,27 @@ def eliminar():
     return render_template('eliminar.html', **context)
 
 
-# @app.route('/visualizar', methods=['GET', 'POST'])
-# @login_required
-# def visualizar():
-#     return "Aqui va la plantilla de visualizar"
-
-@app.route('/visualizar')
+@app.route('/visualizar', methods=['GET', 'POST'])
 @login_required
 def visualizar():
-    return render_template("visualizar.html")
+
+    if request.method == 'POST':
+        filtro = request.form['filtro']
+        filtro_elegido = request.form['filtro-elegido']
+
+        if not equipment_class.check_if_filter_keyword_exist(filtro):
+            flash('Por favor elige un filtro correcto')
+            return redirect(url_for('visualizar'))
+
+        equipments = equipment_class.get_all_the_equipments(filtro, filtro_elegido)
+    else:
+        equipments = equipment_class.get_all_the_equipments()
+
+    context = {
+        'equipments': equipments
+    }
+
+    return render_template("visualizar.html", **context)
 
 
 @app.route('/buscar_equipo_por_codigo/<nombre_funcion>', methods=['GET', 'POST'])

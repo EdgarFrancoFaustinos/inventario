@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inicio.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-visualizar.css')}}">
-    <title>Document</title>
+    <title>visualizar</title>
 </head>
-<body> 
+<body>
     <header class="cabecera">
 		<figure>
 			<img src="{{ url_for('static', filename='img/upa.png')}}">
@@ -29,30 +29,38 @@
                 <li><a href="logout">Log out</a></li>
              </ul>
         </div>
-        
+
 	</header>
 
     <h2 class="titulo">Equipos</h2>
 
     <hr>
 
-    <form action="">
+    <form action="{{ url_for('visualizar') }}" method="post">
         <label for="filtro">Filtrar por:</label>
-        <select name="filtro" id="filtro" name="filtro">
-            <option value="0"></option>
-            <option value="1">Nombre</option>
-            <option value="2">No. de serie</option>
-            <option value="3">Ubicación</option>
-            <option value="4">Marca</option>
-            <option value="5">Condiciones</option>
-            <option value="6">Resguardatario</option>
-            <option value="7">Modelo</option>
-            <option value="8">Código de barras</option>
+        <select id="filtro" name="filtro">
+            <option value="0">Seleccionar</option>
+            <option value="nombre">Nombre</option>
+            <option value="no_serie">No. de serie</option>
+            <option value="ubicacion">Ubicación</option>
+            <option value="marca">Marca</option>
+            <option value="modelo">Modelo</option>
+            <option value="estado">Condiciones</option>
+            <option value="fecha_registro">Fecha</option>
+            <option value="barcode">Código de barras</option>
+            <option value="resguardo">Resguardo</option>
         </select>
 
         <input type="text" name="filtro-elegido" id="filtro-elegido">
         <input type="submit" value="Filtrar">
     </form>
+
+    {% for message in get_flashed_messages()%}
+        <div class="alert alert-success alert-dismissible  mensaje" >
+            <button type="button" data-dismiss='alert' class="close">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor%}
 
     <div class="mostrar">
         <table WIDTH="90%" BORDER="1" CELLSPACING="4" CELLPADING="2">
@@ -62,64 +70,30 @@
                 <th>No. de serie</th>
                 <th>Ubicación</th>
                 <th>Marca</th>
-                <th>Condiciones</th>
-                <th>resguardatario</th>
                 <th>Modelo</th>
-                <th>Código</th>
+                <th>Condiciones</th>
                 <th>Observaciones</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>LAptop Dell</td>
-                <td>1q234da</td>
-                <td>Finanzas</td>
-                <td>Dell</td>
-                <td>Averiado</td>
-                <td>Marco</td>
-                <td>deq31asd</td>
-                <td>123</td>
-                <td>Chida</td>
+                <th>Fecha</th>
+                <th>Código</th>
+                <th>resguardatario</th>
             </tr>
 
+            {% for equipment in equipments %}
             <tr>
-                <td>1</td>
-                <td>LAptop Dell</td>
-                <td>1q234da</td>
-                <td>Finanzas</td>
-                <td>Dell</td>
-                <td>Averiado</td>
-                <td>Marco</td>
-                <td>deq31asd</td>
-                <td>123</td>
-                <td>Chida</td>
+                <td>{{  equipment.0 }}</td>
+                <td>{{  equipment.1 }}</td>
+                <td>{{  equipment.2 }}</td>
+                <td>{{  equipment.3 }}</td>
+                <td>{{  equipment.4 }}</td>
+                <td>{{  equipment.5 }}</td>
+                <td>{{  equipment.12 }}</td>
+                <td>{{  equipment.7 }}</td>
+                <td>{{  equipment.8 }}</td>
+                <td>{{  equipment.9 }}</td>
+                <td>{{  equipment.10 }}</td>
             </tr>
+            {% endfor %}
 
-            <tr>
-                <td>1</td>
-                <td>LAptop Dell</td>
-                <td>1q234da</td>
-                <td>Finanzas</td>
-                <td>Dell</td>
-                <td>Averiado</td>
-                <td>Marco</td>
-                <td>deq31asd</td>
-                <td>123</td>
-                <td>Chida</td>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>LAptop Dell</td>
-                <td>1q234da</td>
-                <td>Finanzas</td>
-                <td>Dell</td>
-                <td>Averiado</td>
-                <td>Marco</td>
-                <td>deq31asd</td>
-                <td>123</td>
-                <td>Chida</td>
-            </tr>
-          
         </table>
     </div>
 </body>

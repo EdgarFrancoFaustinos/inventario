@@ -6,33 +6,38 @@ from datetime import datetime
 import pytz
 
 
-class Equipment: 
+class Equipment:
 
     """ Clase -> Moldea nuevos equipos """
     """Metodo especial constructor ---   __init__   ---"""
-    def __init__(self, nombre="", no_serie='', ubicacion="", marca='', estado="", modelo='', observaciones='', barcode=''):
+    def __init__(self, nombre='', no_serie='', ubicacion="", marca='', estado='', resguardo='',modelo='', observaciones='', barcode=''):
         self.nombre = nombre
         self.no_serie = no_serie
         self.ubicacion = ubicacion
         self.marca = marca
-        self.estado = estado 
+        self.estado = estado
+        self.resguardo = resguardo
         self.modelo = modelo
-        self.observaciones = observaciones 
+        self.observaciones = observaciones
         self.barcode = barcode
         self.db = DataBase()
 
 
     def save(self):
+        """ Inserta nuevos equipos en la db """
+
         register_date = self.register_time()
 
-        sql = f"""INSERT INTO `equipos` 
-        (`nombre`, `no_serie`, `ubicacion`, `marca`, `id_estado`, `modelo`, `observaciones`,  `fecha_registro`, `barcode`) 
-        VALUES ('{self.nombre}', '{self.no_serie}', '{self.ubicacion}', '{self.marca}', '{self.estado}', '{self.modelo}', '{self.observaciones}', '{register_date}', '_'); """
+        sql = f"""INSERT INTO `equipos`
+        (`nombre`, `no_serie`, `ubicacion`, `marca`, `id_estado`, `modelo`, `observaciones`,  `fecha_registro`, `barcode`, `resguardo`)
+        VALUES ('{self.nombre}', '{self.no_serie}', '{self.ubicacion}', '{self.marca}', '{self.estado}', '{self.modelo}', '{self.observaciones}', '{register_date}', '{self.barcode}', '{self.resguardo}'); """
 
         self.db.execute_query(sql)
 
 
-    def register_time(self):    
+    def register_time(self):
+        """ Obtiene la fecha y hora acutal de la ciudad de mexico, asi no afecta si se monta a un servidor de EU """
+
         mex = pytz.timezone('America/Mexico_City')
         datetime_MX = datetime.now(mex)
         register_date = datetime_MX.strftime("%Y-%m-%d %H:%M:%S")
@@ -41,12 +46,17 @@ class Equipment:
 
 
     def get_equipment_info(self, barcode):
-        sql = f""" 
-        SELECT * 
+        """
+        Busca un equipo en la db haciendo match con su barcode, en caso de existir lo retorna
+        caso contrario retorna una tupla vacia
+        """
+
+        sql = f"""
+        SELECT *
         FROM equipos as e
         inner join estado as es
         on es.id_estado = e.id_estado
-        WHERE barcode = '{barcode}' 
+        WHERE barcode = '{barcode}'
         """
 
         data = self.db.execute_query(sql)
@@ -56,7 +66,7 @@ class Equipment:
 
             equipment_info = {
                 'barcode': f'{data[0]}',
-                'nombre': f'{data[1]}', 
+                'nombre': f'{data[1]}',
                 'no_serie': f'{data[2]}',
                 'ubicacion': f'{data[3]}',
                 'marca': f'{data[4]}',
@@ -65,15 +75,18 @@ class Equipment:
                 'observaciones': f'{data[7]}',
                 'fecha_registro': f'{data[8]}',
                 'barcode': f'{data[9]}',
-                'estado': f'{data[11]}'
+                'resguardo': f'{data[10]}',
+                'estado': f'{data[12]}'
             }
-            
+
             return equipment_info
 
         return data
 
-    
+
     def delete_equipment(self, barcode):
+        """ Elimina un equipo de la db buscado por codigo de barras """
+
         sql = f"DELETE FROM equipos WHERE barcode = '{barcode}' limit 1"
         self.db.execute_query(sql)
 
@@ -81,6 +94,7 @@ class Equipment:
 
 
     def update_equipment(self):
+        """ Funcion encargada de hacer el update de un equipo en la db """
         # considerar en agregar un campo llamado ultima_modificacion
 
         sql = f"""
@@ -90,6 +104,7 @@ class Equipment:
         ubicacion = '{self.ubicacion}',
         marca = '{self.marca}',
         id_estado = '{self.estado}',
+        resguardo = '{self.resguardo}',
         modelo = '{self.modelo}',
         observaciones = '{self.observaciones}'
         WHERE barcode = '{self.barcode}' limit 1;
@@ -97,3 +112,43 @@ class Equipment:
 
         self.db.execute_query(sql)
 
+
+    def get_all_the_equipments(self, filter=None, chosen_filter=''):
+        """ Retorna todos los equipos existentes en la db, y le mandamos un filtro lo va a buscar por esa keyword """
+
+        if chosen_filter and filter is not None:
+            SQL = f"""
+            SELECT *
+            FROM equipos as e
+            inner join estado as es
+            on es.id_estado = e.id_estado
+            WHERE {filter} LIKE  '%{chosen_filter}%'
+            """
+        else:
+            SQL = """SELECT *
+            FROM equipos as e
+            inner join estado as es
+            on es.id_estado = e.id_estado"""
+
+        data = self.db.execute_query(SQL)
+
+        return data
+
+
+    def check_if_filter_keyword_exist(self, keyword):
+        FILTER_LIST = [
+            'nombre',
+            'no_serie',
+            'ubicacion',
+            'marca',
+            'modelo',
+            'estado',
+            'fecha_registro',
+            'barcode',
+            'resguardo'
+        ]
+
+        if keyword not in FILTER_LIST:
+            return False
+
+        return True
