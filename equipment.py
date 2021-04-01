@@ -26,7 +26,7 @@ class Equipment:
     def save(self):
         """ Inserta nuevos equipos en la db """
 
-        register_date = self.register_time()
+        register_date = self.register_time() # obtiene la fecha actual
 
         sql = f"""INSERT INTO `equipos`
         (`nombre`, `no_serie`, `ubicacion`, `marca`, `id_estado`, `modelo`, `observaciones`,  `fecha_registro`, `barcode`, `resguardo`)
@@ -114,7 +114,7 @@ class Equipment:
 
 
     def get_all_the_equipments(self, filter=None, chosen_filter=''):
-        """ Retorna todos los equipos existentes en la db, y le mandamos un filtro lo va a buscar por esa keyword """
+        """ Retorna todos los equipos existentes en la db, y si le mandamos un filtro lo va a buscar por esa keyword """
 
         if chosen_filter and filter is not None:
             SQL = f"""
@@ -136,6 +136,11 @@ class Equipment:
 
 
     def check_if_filter_keyword_exist(self, keyword):
+        """
+        Función encargada de verificar si el keyword coincide con algun nombre de campo de nuestra tabla equipos
+        si esta correctamente escrito devuelve True, si no retorna False por que no existe este campo en la db
+        """
+
         FILTER_LIST = [
             'nombre',
             'no_serie',

@@ -91,6 +91,7 @@ def agregar():
 @app.route('/actualizar', methods=['GET', 'POST'])
 @login_required
 def actualizar():
+    """ Se encarga de obtener los datos a actualizar, en caso de no recibir algun cambio ese dato seguira siendo el mismo """
 
     if request.method == 'POST':
         nombre= request.form['nombre']
@@ -126,6 +127,7 @@ def actualizar():
 @app.route('/eliminar', methods=['GET', 'POST'])
 @login_required
 def eliminar():
+    """ Elimina algun equipo de la db, manda como parametro el barcode del equipo a eliminar"""
 
     if request.method == 'POST':
         barcode = request.form['barcode']
@@ -152,6 +154,7 @@ def eliminar():
 @app.route('/visualizar', methods=['GET', 'POST'])
 @login_required
 def visualizar():
+    """ Obtiene todos los equipos de nuestra db, en caso de usar un filtro manda los parametros para filtrar """
 
     if request.method == 'POST':
         filtro = request.form['filtro']
@@ -175,6 +178,7 @@ def visualizar():
 @app.route('/buscar_equipo_por_codigo/<nombre_funcion>', methods=['GET', 'POST'])
 @login_required
 def buscar(nombre_funcion):
+    """ Función auxiliar para buscar un equipo usando el barcode, nos sirve la funcion eliminar y actualizar """
 
     if request.method == 'POST':
         barcode = request.form['barcode']
@@ -195,9 +199,10 @@ def logout():
     return redirect(url_for('login'))
 
 
-# si detecta que hay inicion iniciada valida que sea del usuario que la consulta
 @login_manager.user_loader
 def load_user(user_id):
+    """ si detecta que hay inición iniciada valida que sea del usuario que la consulta """
+
     user = user_class.get_user_by_id(int(user_id))
     return user
 
