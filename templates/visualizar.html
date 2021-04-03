@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-inicio.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-visualizar.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-volver.css')}}">
     <title>visualizar</title>
 </head>
 <body>
@@ -29,8 +30,13 @@
                 <li><a href="logout">Log out</a></li>
              </ul>
         </div>
-
 	</header>
+
+    <div class="volver">
+        <figure>
+            <a href="/inicio"> <img class="user" src="{{ url_for('static', filename='img/volver.png')}}" alt="" width="40px">Volver</a>
+        </figure>
+    </div>
 
     <h2 class="titulo">Equipos</h2>
 
@@ -63,19 +69,20 @@
     {% endfor%}
 
     <div class="mostrar">
-        <table WIDTH="90%" BORDER="1" CELLSPACING="4" CELLPADING="2">
+        <table WIDTH="90%" BORDER="1"  CELLSPACING="3">
             <tr>
-                <th>ID Equipos</th>
-                <th>Nombre</th>
-                <th>No. de serie</th>
-                <th>Ubicación</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Condiciones</th>
-                <th>Observaciones</th>
-                <th>Fecha</th>
-                <th>Código</th>
-                <th>resguardatario</th>
+                <th bgcolor="#fff">ID Equipos</th>
+                <th bgcolor="#fff">Nombre</th>
+                <th bgcolor="#fff">No. de serie</th>
+                <th bgcolor="#fff">Ubicación</th>
+                <th bgcolor="#fff">Marca</th>
+                <th bgcolor="#fff">Modelo</th>
+                <th bgcolor="#fff">Condiciones</th>
+                <th bgcolor="#fff">Observaciones</th>
+                <th bgcolor="#fff">Fecha</th>
+                <th bgcolor="#fff">Código</th>
+                <th bgcolor="#fff">resguardatario</th>
+                <th bgcolor="#fff" colspan="2">Opciones</th>
             </tr>
 
             {% for equipment in equipments %}
@@ -91,6 +98,8 @@
                 <td>{{  equipment.8 }}</td>
                 <td>{{  equipment.9 }}</td>
                 <td>{{  equipment.10 }}</td>
+                <td>Actualizar</td>
+                <td>Eliminar</td>
             </tr>
             {% endfor %}
 

@@ -6,7 +6,6 @@
 
 body
 {
-    /* background-image: url('../img/bg.jpg'); */
     background-image: url('../img/mejorado.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,7 +15,6 @@ body
 header
 {
     width: 100%;
-    /* background: #71a447; */
     background: #fff;
     height: 80px;
     display: flex;

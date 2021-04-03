@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-agregar__equipo.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-actualizar.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-visualizar.css')}}">
+
     <title>Actualizar Equipo</title>
 </head>
 <body>
@@ -19,6 +21,12 @@
 			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
 		</figure>
 	</header>
+
+    <div class="volver">
+        <figure>
+            <a href="/inicio"> <img class="user" src="{{ url_for('static', filename='img/volver.png')}}" alt="" width="40px">Volver</a>
+        </figure>
+    </div>
 
 
 	<h2>Actualizar Equipo</h2>
