@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-agregar__equipo.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-volver.css')}}">
     <title>Agregar equipo</title>
 </head>
 <body>
@@ -14,10 +15,26 @@
 			<img src="{{ url_for('static', filename='img/upa.png')}}">
 
 		</figure>
+
 		<figure>
 			<img src="{{ url_for('static', filename='img/edo.jpg')}}">
 		</figure>
+
+		<div class="menu">
+            <figure class="user">
+			    <img class="user" src="{{ url_for('static', filename='img/user.png')}}" alt="">
+            </figure>
+            <ul>
+                <li><a href="logout">Log out</a></li>
+             </ul>
+        </div>
 	</header>
+
+	<div class="volver">
+        <figure>
+            <a href="/inicio"> <img class="user" src="{{ url_for('static', filename='img/regreso.png')}}" alt="" width="40px">Volver</a>
+        </figure>
+    </div>
 
 
 	<h2>Agregar Equipo</h2>

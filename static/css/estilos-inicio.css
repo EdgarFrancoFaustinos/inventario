@@ -1,9 +1,5 @@
 body
 {
-    /* background-image: url('../img/mejorado.jpeg') #fff;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; */
     background: #6d8517;
 }
 
@@ -100,6 +96,12 @@ h2
 {
     height: 54px;
 }
+
+.contenedor .opciones .boton:hover
+{
+    opacity: .8;
+}
+
 .contenedor .opciones .icono
 {
     overflow: hidden;

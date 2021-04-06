@@ -34,7 +34,7 @@
 
     <div class="volver">
         <figure>
-            <a href="/inicio"> <img class="user" src="{{ url_for('static', filename='img/volver.png')}}" alt="" width="40px">Volver</a>
+            <a href="/inicio"> <img class="user" src="{{ url_for('static', filename='img/regreso.png')}}" alt="" width="40px">Volver</a>
         </figure>
     </div>
 
@@ -47,14 +47,9 @@
         <select id="filtro" name="filtro">
             <option value="0">Seleccionar</option>
             <option value="nombre">Nombre</option>
-            <option value="no_serie">No. de serie</option>
             <option value="ubicacion">Ubicación</option>
-            <option value="marca">Marca</option>
-            <option value="modelo">Modelo</option>
             <option value="estado">Condiciones</option>
-            <option value="fecha_registro">Fecha</option>
             <option value="barcode">Código de barras</option>
-            <option value="resguardo">Resguardo</option>
         </select>
 
         <input type="text" name="filtro-elegido" id="filtro-elegido">
@@ -98,8 +93,15 @@
                 <td>{{  equipment.8 }}</td>
                 <td>{{  equipment.9 }}</td>
                 <td>{{  equipment.10 }}</td>
-                <td>Actualizar</td>
-                <td>Eliminar</td>
+                <form action="/buscar_equipo_por_codigo/actualizar" method="POST">
+                    <td><input type="submit" value="Actualizar"></td>
+                    <input type="hidden" name="barcode" value="{{  equipment.9 }}">
+                </form>
+                <form action="/buscar_equipo_por_codigo/eliminar" method="POST">
+                    <td><input type="submit" value="Eliminar"></td>
+                    <input type="hidden" name="barcode" value="{{  equipment.9 }}">
+                </form> 
+
             </tr>
             {% endfor %}
 
