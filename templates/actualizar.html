@@ -57,17 +57,17 @@
 
 	<div class="contenedor">
 		<form action="{{ url_for('actualizar')}}" method="POST">
-			<input type="hidden" name="barcode" value="{{ data.get('barcode')}} ">
+			<input type="hidden" name="equipment_id" value="{{ data.get('equipment_id')}} ">
 			<label for="nombre">Nombre:</label>
 			<input type="text" placeholder="Nombre:" name="nombre" value="{{ data.get('nombre', '') }}">
 			<label for="nombre">No. de serie:</label>
 			<input type="text" placeholder="No. de serie" name="no_serie" value="{{ data.get('no_serie', '') }}">
 			<label for="nombre">Ubicación:</label>
 			<input type="text" placeholder="Ubicación" name="ubicacion" value="{{ data.get('ubicacion', '') }}">
-			<label for="nombre">Marca:</label>	
+			<label for="nombre">Marca:</label>
 			<input type="text" placeholder="Marca" name="marca" value="{{ data.get('marca', '') }}">
 			<label for="estado">Condiciones</label>
-			<select name="estado" id="estado" class="estado" name="estado">
+			<select id="estado" class="estado" name="estado">
 				<option value="{{data.get('id_estado', '0')}}">{{ data.get('estado', '') }}</option>
 				<option value="1">funcional</option>
 				<option value="2">Averiado</option>
@@ -78,7 +78,7 @@
 			<label for="nombre">Modelo:</label>
 			<input type="text" placeholder="Modelo" id="modelo" class="modelo" name="modelo" value="{{ data.get('modelo', '') }}">
 			<label for="nombre">Código de barras:</label>
-			<input type="text" placeholder="Código de barras" value="{{ data.get('barcode')}}" readonly>
+			<input type="text" placeholder="Código de barras" value="{{ data.get('barcode')}}" name="barcode">
 			<label for="nombre">Observaciones:</label>
 			<input type="text" placeholder="observaciones" id="observaciones" class="observaciones" name="observaciones" value="{{ data.get('observaciones', '') }}">
 			<input type="submit" value="Actualizar">

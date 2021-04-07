@@ -94,6 +94,7 @@ def actualizar():
     """ Se encarga de obtener los datos a actualizar, en caso de no recibir algun cambio ese dato seguira siendo el mismo """
 
     if request.method == 'POST':
+        equipment_id = request.form['equipment_id']
         nombre= request.form['nombre']
         serie = request.form['no_serie']
         ubicacion = request.form['ubicacion']
@@ -105,7 +106,7 @@ def actualizar():
         barcode = request.form['barcode']
 
         updateEquipment = Equipment(nombre, serie, ubicacion, marca, estado, resguardo,modelo, observaciones, barcode)
-        updateEquipment.update_equipment()
+        updateEquipment.update_equipment(equipment_id)
 
         flash('Equipo actualizado correctamente')
         return redirect(url_for('inicio'))

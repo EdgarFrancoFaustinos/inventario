@@ -65,7 +65,7 @@ class Equipment:
             data = data[0]
 
             equipment_info = {
-                'barcode': f'{data[0]}',
+                'equipment_id': f'{data[0]}',
                 'nombre': f'{data[1]}',
                 'no_serie': f'{data[2]}',
                 'ubicacion': f'{data[3]}',
@@ -93,7 +93,7 @@ class Equipment:
         return True
 
 
-    def update_equipment(self):
+    def update_equipment(self, equipment_id):
         """ Funcion encargada de hacer el update de un equipo en la db """
         # considerar en agregar un campo llamado ultima_modificacion
 
@@ -106,8 +106,9 @@ class Equipment:
         id_estado = '{self.estado}',
         resguardo = '{self.resguardo}',
         modelo = '{self.modelo}',
-        observaciones = '{self.observaciones}'
-        WHERE barcode = '{self.barcode}' limit 1;
+        observaciones = '{self.observaciones}',
+        barcode = '{self.barcode}'
+        WHERE id_equipos = '{equipment_id}' limit 1;
         """
 
         self.db.execute_query(sql)
