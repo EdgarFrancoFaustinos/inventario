@@ -103,31 +103,3 @@ form input[type="submit"]:focus
     background: #000;
     color: #fff;
 }
-
-
-form .buscador
-{
-    outline: none;
-    width: 250px;
-    text-align: center;
-    height: 30px;
-    opacity: .8;    
-}
-
-form input[type="submit"]
-{
-    width: 80px;
-    height: 30px;
-}
-
-form input[type="submit"]:hover
-{
-    background: #000;
-    color: #fff;
-}
-
-form input[type="submit"]:focus
-{
-    background: #000;
-    color: #fff;
-}
