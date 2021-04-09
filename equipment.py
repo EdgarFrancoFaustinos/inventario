@@ -117,7 +117,15 @@ class Equipment:
     def get_all_the_equipments(self, filter=None, chosen_filter=''):
         """ Retorna todos los equipos existentes en la db, y si le mandamos un filtro lo va a buscar por esa keyword """
 
-        if chosen_filter and filter is not None:
+        if chosen_filter and filter == 'barcode':
+            SQL = f"""
+            SELECT *
+            FROM equipos as e
+            inner join estado as es
+            on es.id_estado = e.id_estado
+            WHERE {filter} = '{chosen_filter}'
+            """
+        elif chosen_filter and filter is not None:
             SQL = f"""
             SELECT *
             FROM equipos as e
