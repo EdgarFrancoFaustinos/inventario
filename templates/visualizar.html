@@ -39,6 +39,7 @@
     </div>
 
     <h2 class="titulo">Equipos</h2>
+    <br>
 
     <hr>
 
@@ -64,25 +65,25 @@
     {% endfor%}
 
     <div class="mostrar">
-        <table WIDTH="90%" BORDER="1"  CELLSPACING="3">
+        <table WIDTH="90%" BORDER="1"  CELLSPACING="5">
             <tr>
-                <th bgcolor="#fff">ID Equipos</th>
-                <th bgcolor="#fff">Nombre</th>
-                <th bgcolor="#fff">No. de serie</th>
-                <th bgcolor="#fff">Ubicación</th>
-                <th bgcolor="#fff">Marca</th>
-                <th bgcolor="#fff">Modelo</th>
-                <th bgcolor="#fff">Condiciones</th>
-                <th bgcolor="#fff">Observaciones</th>
-                <th bgcolor="#fff">Fecha</th>
-                <th bgcolor="#fff">Código</th>
-                <th bgcolor="#fff">resguardatario</th>
-                <th bgcolor="#fff" colspan="2">Opciones</th>
+                <th>ID Equipos</th>
+                <th>Nombre</th>
+                <th>No. de serie</th>
+                <th>Ubicación</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Condiciones</th>
+                <th>Observaciones</th>
+                <th>Fecha</th>
+                <th>Código</th>
+                <th>resguardatario</th>
+                <th colspan="2">Opciones</th>
             </tr>
 
             {% for equipment in equipments %}
             <tr>
-                <td>{{  equipment.0 }}</td>
+                <td >{{  equipment.0 }}</td>
                 <td>{{  equipment.1 }}</td>
                 <td>{{  equipment.2 }}</td>
                 <td>{{  equipment.3 }}</td>
@@ -94,11 +95,11 @@
                 <td>{{  equipment.9 }}</td>
                 <td>{{  equipment.10 }}</td>
                 <form action="/buscar_equipo_por_codigo/actualizar" method="POST">
-                    <td><input type="submit" value="Actualizar"></td>
+                    <td style="border: none;"><input id="boton" type="submit" value="Actualizar" style="outline: none; border: none;"></td>
                     <input type="hidden" name="barcode" value="{{  equipment.9 }}">
                 </form>
                 <form action="/buscar_equipo_por_codigo/eliminar" method="POST">
-                    <td><input type="submit" value="Eliminar"></td>
+                    <td style="border: none;"><input type="submit" value="Eliminar" style="outline: none; border: none;"></td>
                     <input type="hidden" name="barcode" value="{{  equipment.9 }}">
                 </form> 
 

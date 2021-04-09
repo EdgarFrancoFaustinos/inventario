@@ -1,24 +1,20 @@
-form
+h2
 {
+    color:#fff;
+}
+
+form .buscador
+{
+    outline: none;
+    width: 250px;
     text-align: center;
-    margin: 50px;
+    height: 30px;
+    opacity: .8;    
 }
-
-label
-{
- padding: 10x;
-}
-
-.mostrar table
-{
-    margin: 50px auto; 
-    background: #fff;
-}
-
-
 
 form select
 {
+    margin: 25px;
     width: 15%;
     outline: none;
     padding: 5px;
@@ -34,8 +30,8 @@ form input[type="submit"]
 
 form input[type="text"]
 {
-    width: 170px;
-    height: 25px;
+    width: 180px;
+    height: 30px;
 }
 
 form input[type="submit"]:hover
