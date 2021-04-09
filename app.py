@@ -166,6 +166,10 @@ def visualizar():
             return redirect(url_for('visualizar'))
 
         equipments = equipment_class.get_all_the_equipments(filtro, filtro_elegido)
+
+        if not equipments:
+            flash("No se encontraron resultados, intenta nuevamente")
+            equipments = equipment_class.get_all_the_equipments()
     else:
         equipments = equipment_class.get_all_the_equipments()
 
